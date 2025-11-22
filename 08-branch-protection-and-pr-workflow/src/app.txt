@@ -1,0 +1,9 @@
+Version 1 - Hello from DevOps Lab 08!
+
+This is a simple text application file used to demonstrate:
+- Git branching workflow
+- Pull request process
+- Branch protection rules
+- Required CI checks before merging
+
+Students will modify this file in feature branches and create PRs to merge changes into the main branch.

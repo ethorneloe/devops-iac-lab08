@@ -1,0 +1,16 @@
+# CODEOWNERS file
+# This file defines who owns specific parts of the codebase.
+# When a PR modifies files in these directories, the specified owners
+# will automatically be requested for review.
+
+# Default owner for everything in the repository
+# Replace @your-github-handle with your actual GitHub username
+*       @your-github-handle
+
+# Specific ownership for source files
+# PRs that modify files in /src/ will require review from these owners
+/src/   @your-github-handle
+
+# You can add more specific ownership rules as needed, for example:
+# /.github/workflows/   @devops-team
+# /docs/                @documentation-team
