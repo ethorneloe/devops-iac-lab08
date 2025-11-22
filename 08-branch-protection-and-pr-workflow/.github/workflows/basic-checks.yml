@@ -1,0 +1,46 @@
+name: Basic Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  basic-checks:
+    name: Run Basic Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Verify app.txt exists and is not empty
+        run: |
+          if [ ! -f "src/app.txt" ]; then
+            echo "ERROR: src/app.txt does not exist!"
+            exit 1
+          fi
+
+          if [ ! -s "src/app.txt" ]; then
+            echo "ERROR: src/app.txt is empty!"
+            exit 1
+          fi
+
+          echo "✓ src/app.txt exists and contains content"
+
+      - name: Check for common issues
+        run: |
+          echo "Checking for common issues..."
+
+          # Check that the file has meaningful content (more than just whitespace)
+          if ! grep -q '[^[:space:]]' src/app.txt; then
+            echo "ERROR: src/app.txt contains only whitespace!"
+            exit 1
+          fi
+
+          echo "✓ All basic checks passed"
+
+      - name: Display app.txt content
+        run: |
+          echo "Current content of src/app.txt:"
+          cat src/app.txt
